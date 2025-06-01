@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add/Edit Appointment</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${appointment.id} == null ? 'New Appointment' : 'Edit Appointment'">Form</h1>
+        <form action="#" th:action="@{/save}" th:object="${appointment}" method="post" class="appointment-form">
+            <input type="hidden" th:field="*{id}" />
+            
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" th:field="*{patientName}" required placeholder="Enter patient name" />
+            
+            <label for="doctorName">Doctor Name:</label>
+            <select id="doctorName" th:field="*{doctorName}" required>
+                <option value="" disabled selected>Select a doctor</option>
+                <option th:value="'Dr. Ana Popescu'" th:text="'Dr. Ana Popescu'"></option>
+                <option th:value="'Dr. Mihai Ionescu'" th:text="'Dr. Mihai Ionescu'"></option>
+                <option th:value="'Dr. Elena Marinescu'" th:text="'Dr. Elena Marinescu'"></option>
+                <option th:value="'Dr. Andrei Georgescu'" th:text="'Dr. Andrei Georgescu'"></option>
+                <option th:value="'Dr. Ioana Radu'" th:text="'Dr. Ioana Radu'"></option>
+                <option th:value="'Dr. Cristian Dumitru'" th:text="'Dr. Cristian Dumitru'"></option>
+                <option th:value="'Dr. Maria Stanescu'" th:text="'Dr. Maria Stanescu'"></option>
+                <option th:value="'Dr. Vlad Petrescu'" th:text="'Dr. Vlad Petrescu'"></option>
+                <option th:value="'Dr. Gabriela Tudor'" th:text="'Dr. Gabriela Tudor'"></option>
+                <option th:value="'Dr. Sorin Neagu'" th:text="'Dr. Sorin Neagu'"></option>
+            </select>
+            
+            <label for="date">Date:</label>
+            <input type="date" id="date" th:field="*{date}" required />
+            
+            <label for="time">Time:</label>
+            <input type="time" id="time" th:field="*{time}" required />
+            
+            <button type="submit" class="btn-save">Save</button>
+            <a href="/" class="button btn-cancel">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

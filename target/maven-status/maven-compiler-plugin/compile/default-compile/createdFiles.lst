@@ -1,0 +1,4 @@
+com\example\doctorappointments\DoctorAppointmentsApplication.class
+com\example\doctorappointments\Appointment.class
+com\example\doctorappointments\DoctorAppointmentController.class
+com\example\doctorappointments\AppointmentService.class
